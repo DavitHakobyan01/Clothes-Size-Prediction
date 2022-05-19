@@ -23,7 +23,7 @@ def home():
     return render_template("index.html")
 
 
-@views.route('/', methods=["GET", "POST"])
+@views.route('/', methods=["POST"])
 def button():
     if request.method == "POST":
         if request.form['submit_button'] == 'Submit':
