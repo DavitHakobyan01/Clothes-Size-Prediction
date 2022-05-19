@@ -1,2 +1,9 @@
 flask
 pandas
+pandas
+numpy
+matplotlib
+sklearn
+seaborn
+pickle-mixin
+
