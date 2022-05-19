@@ -1,11 +1,10 @@
 import pickle
 import pandas as pd
-from pathlib import Path
 import warnings
 
 warnings.filterwarnings('ignore')
 
-MODEL_DIR = rf'{Path(__file__).parent}\models'
+MODEL_DIR = r'.\models'
 
 
 def predict_shoe_size(gender: str, age: float, height: float, weight: float,
