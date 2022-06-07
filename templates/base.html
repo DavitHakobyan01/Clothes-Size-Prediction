@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Calculator for predicting your clothes sizes">
+    <!--    <meta name="author" content="Colorlib">-->
+    <!--    <meta name="keywords" content="Colorlib Templates">-->
+        <!-- Title Page-->
+        <title>Clothes Size Calculator</title>
+        <!-- Main CSS-->
+        <link href="./static/main.css" rel="stylesheet" media="all">
+    </head>
+
+    <body>
+        <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+            <div class="wrapper wrapper--w680">
+                <div class="card card-4">
+                    <div class="card-header">
+                        <img src="../static/images/{{ ad_image }}" class="main-banner"/>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="title">{{ title }}</h2>
+                        {% block main %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+
+            <div class="section">
+                <h6 class="section-header">Contact Us</h6>
+                <div><span>Email : </span><span>dev@gmail.com</span></div>
+                <div><span>Phone : </span><span>+123456789</span></div>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>

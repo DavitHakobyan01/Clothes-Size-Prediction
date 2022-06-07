@@ -1,91 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Calculator for predicting your clothes sizes">
-<!--    <meta name="author" content="Colorlib">-->
-<!--    <meta name="keywords" content="Colorlib Templates">-->
+{% extends 'base.html' %}
 
-    <!-- Title Page-->
-    <title>Clothes Size Calculator</title>
-
-    <!-- Icons font CSS-->
-    <link href="./vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="./vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Vendor CSS-->
-    <link href="./vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="./vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="./static/main.css" rel="stylesheet" media="all">
-</head>
-
-<body>
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
-                <div class="card-header">
-                    <img src="../static/images/main-banner.png" class="main-banner"/>
-                </div>
-                <div class="card-body">
-                    <h2 class="title">Your Sizes</h2>
-
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                  <label class="label">your shoe size is</label>
-                                  <label class="row row-space">{{shoe_size_1}} - {{shoe_size_prob_1}}%</label>
-                                  <label class="row row-space">{{shoe_size_2}} - {{shoe_size_prob_2}}%</label>
-                                  <label class="row row-space">{{shoe_size_3}} - {{shoe_size_prob_3}}%</label>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                  <label class="label">your jeans size is</label>
-                                  <label class="row row-space">{{jeans_size_1}} - {{jeans_size_prob_1}}%</label>
-                                  <label class="row row-space">{{jeans_size_2}} - {{jeans_size_prob_2}}%</label>
-                                  <label class="row row-space">{{jeans_size_3}} - {{jeans_size_prob_3}}%</label></div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                  <label class="label">your shirt size is</label>
-                                  <label class="row row-space">{{shirt_size_1}} - {{shirt_size_prob_1}}%</label>
-                                  <label class="row row-space">{{shirt_size_2}} - {{shirt_size_prob_2}}%</label>
-                                  <label class="row row-space">{{shirt_size_3}} - {{shirt_size_prob_3}}%</label>
-                                </div>
-                            </div>
-                            </div>
-                </div>
-            </div>
+{% block main %}
+<div class="row row-space">
+    <div class="col-2">
+        <div class="input-group">
+            <label class="label">your shoe size is</label>
+                {% clothes_size, prob in shoes.items() %}
+                    <label class="row row-space">{{clothes_size}}</label>
+<!--          <label class="row row-space">{{shoe_size_2}} - {{shoe_size_prob_2}}%</label>-->
+<!--          <label class="row row-space">{{shoe_size_3}} - {{shoe_size_prob_3}}%</label>-->
+                {% endfor %}
         </div>
     </div>
-    <div class="footer">
-
-        <div class="section">
-            <h6 class="section-header">Contact Us</h6>
-            <div><span>Email : </span><span>dev@gmail.com</span></div>
-            <div><span>Phone : </span><span>+123456789</span></div>
+    <div class="col-2">
+        <div class="input-group">
+          <label class="label">your jeans size is</label>
+          <label class="row row-space">{{jeans_size_1}} - {{jeans_size_prob_1}}%</label>
+          <label class="row row-space">{{jeans_size_2}} - {{jeans_size_prob_2}}%</label>
+          <label class="row row-space">{{jeans_size_3}} - {{jeans_size_prob_3}}%</label></div>
+    </div>
+</div>
+<div class="row row-space">
+    <div class="col-2">
+        <div class="input-group">
+          <label class="label">your shirt size is</label>
+          <label class="row row-space">{{shirt_size_1}} - {{shirt_size_prob_1}}%</label>
+          <label class="row row-space">{{shirt_size_2}} - {{shirt_size_prob_2}}%</label>
+          <label class="row row-space">{{shirt_size_3}} - {{shirt_size_prob_3}}%</label>
         </div>
     </div>
+    </div>
+{% endblock %}
 
-    <!-- Jquery JS-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="./vendor/select2/select2.min.js"></script>
-    <script src="./datepicker/moment.min.js"></script>
-    <script src="./vendor/datepicker/daterangepicker.js"></script>
-
-    <!-- Main JS-->
-    <script src="./global.js"></script>
-
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
-</html>
-<!-- end document-->

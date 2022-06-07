@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<form method="POST">
+    <div class="row row-space">
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">your age</label>
+                <input class="input--style-4" type="text" name="age" min="1" max="110" type="number" ondrop="return false;" onpaste="return false;">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">your height (cm)</label>
+                <input class="input--style-4" type="text" name="height" min="120" max="200" type="number" ondrop="return false;" onpaste="return false;">
+            </div>
+        </div>
+    </div>
+    <div class="row row-space">
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">your weight (kg)</label>
+                <input class="input--style-4" type="text" name="weight" min="10" max="200" type="number" ondrop="return false;" onpaste="return false;">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="input-group">
+                <label class="label">Gender</label>
+                <div class="p-t-10">
+                    <label class="radio-container m-r-45">Male
+                        <input type="radio" checked="checked" name="gender">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">Female
+                        <input type="radio" name="gender">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-t-15">
+        <input class="btn btn--radius-2 btn--blue" type="submit" name="submit_button"></input>
+    </div>
+</form>
+{% endblock %}
