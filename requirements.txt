@@ -1,6 +1,5 @@
 flask
 pandas
-pandas
 numpy
 matplotlib
 sklearn
