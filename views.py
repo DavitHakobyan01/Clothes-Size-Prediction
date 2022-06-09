@@ -40,26 +40,14 @@ def button():
             shoe_sizes, shoe_sizes_prob = list(predictions['Shoe'].keys()), list(predictions['Shoe'].values())
             jeans_sizes, jeans_sizes_prob = list(predictions['Jeans'].keys()), list(predictions['Jeans'].values())
             shirt_sizes, shirt_sizes_prob = list(predictions['Shirt'].keys()), list(predictions['Shirt'].values())
+
             return render_template('prediction.html',
-                                   shoes=predictions['Shoe'],
-                                   # shoe_sizes=shoe_sizes,
-                                   # shoe_size_2=shoe_sizes[1],
-                                   # shoe_size_3=shoe_sizes[2],
-                                   # shoe_sizes_prob=shoe_sizes_prob,
-                                   # shoe_size_prob_2=shoe_sizes_prob[1],
-                                   # shoe_size_prob_3=shoe_sizes_prob[2],
-                                   jeans_size_1=jeans_sizes[0],
-                                   jeans_size_2=jeans_sizes[1],
-                                   jeans_size_3=jeans_sizes[2],
-                                   jeans_size_prob_1=jeans_sizes_prob[0],
-                                   jeans_size_prob_2=jeans_sizes_prob[1],
-                                   jeans_size_prob_3=jeans_sizes_prob[2],
-                                   shirt_size_1=shirt_sizes[0],
-                                   shirt_size_2=shirt_sizes[1],
-                                   shirt_size_3=shirt_sizes[2],
-                                   shirt_size_prob_1=shirt_sizes_prob[0],
-                                   shirt_size_prob_2=shirt_sizes_prob[1],
-                                   shirt_size_prob_3=shirt_sizes_prob[2],
+                                   shoe_sizes=shoe_sizes,
+                                   shoe_sizes_prob=shoe_sizes_prob,
+                                   jeans_sizes=jeans_sizes,
+                                   jeans_sizes_prob=jeans_sizes_prob,
+                                   shirt_sizes=shirt_sizes,
+                                   shirt_sizes_prob=shirt_sizes_prob,
                                    ad_image="main-banner.png",
                                    title="Your Sizes")
 

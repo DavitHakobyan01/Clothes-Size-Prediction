@@ -30,8 +30,8 @@ def predict_shoe_size(gender: str, age: float, height: float, weight: float,
         sample = pd.DataFrame([[gender, age, height, weight]], columns=['sex', 'age', 'height', 'weight'])
 
     probabilities = pd.DataFrame(model.predict_proba(sample).reshape(-1, 1), columns=['Shoe'],
-                                 index=[str(int(i)) for i in model.classes_]).sort_values(by='Shoe', ascending=False).iloc[:3]
-    return (probabilities * 100).round(2).astype('str').to_dict()
+                                 index=[int(i) for i in model.classes_]).sort_values(by='Shoe', ascending=False).iloc[:3]
+    return (probabilities * 100).round(2).to_dict()
 
 
 def predict_jeans_size(gender: str, age: float, height: float, weight: float,
@@ -63,7 +63,7 @@ def predict_jeans_size(gender: str, age: float, height: float, weight: float,
     classes = [jeans_sizes[i] for i in model.classes_ if i in jeans_sizes.keys()]
     probabilities = pd.DataFrame(model.predict_proba(sample).reshape(-1, 1), columns=['Jeans'],
                                  index=classes).sort_values(by='Jeans', ascending=False).iloc[:3]
-    return (probabilities * 100).round(2).astype('str').to_dict()
+    return (probabilities * 100).round(2).to_dict()
 
 
 def predict_shirt_size(gender: str, age: float, height: float, weight: float,
@@ -92,7 +92,7 @@ def predict_shirt_size(gender: str, age: float, height: float, weight: float,
     classes = [shirt_sizes[i] for i in model.classes_ if i in shirt_sizes.keys()]
     probabilities = pd.DataFrame(model.predict_proba(sample).reshape(-1, 1), columns=['Shirt'],
                                  index=classes).sort_values(by='Shirt', ascending=False).iloc[:3]
-    return (probabilities * 100).round(2).astype('str').to_dict()
+    return (probabilities * 100).round(2).to_dict()
 
 
 def predict_clothes_sizes(gender: str, age: float, height: float, weight: float,

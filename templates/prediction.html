@@ -5,30 +5,29 @@
     <div class="col-2">
         <div class="input-group">
             <label class="label">your shoe size is</label>
-                {% clothes_size, prob in shoes.items() %}
-                    <label class="row row-space">{{clothes_size}}</label>
-<!--          <label class="row row-space">{{shoe_size_2}} - {{shoe_size_prob_2}}%</label>-->
-<!--          <label class="row row-space">{{shoe_size_3}} - {{shoe_size_prob_3}}%</label>-->
-                {% endfor %}
+            <label class="row row-space">{{shoe_sizes[0]}} - {{shoe_sizes_prob[0]}}%</label>
+            <label class="row row-space">{{shoe_sizes[1]}} - {{shoe_sizes_prob[1]}}%</label>
+            <label class="row row-space">{{shoe_sizes[2]}} - {{shoe_sizes_prob[2]}}%</label>
         </div>
     </div>
     <div class="col-2">
         <div class="input-group">
             <label class="label">your jeans size is</label>
-            <label class="row row-space">{{jeans_size_1}} - {{jeans_size_prob_1}}%</label>
-            <label class="row row-space">{{jeans_size_2}} - {{jeans_size_prob_2}}%</label>
-            <label class="row row-space">{{jeans_size_3}} - {{jeans_size_prob_3}}%</label></div>
+            <label class="row row-space">{{jeans_sizes[0]}} - {{jeans_sizes_prob[0]}}%</label>
+            <label class="row row-space">{{jeans_sizes[1]}} - {{jeans_sizes_prob[1]}}%</label>
+            <label class="row row-space">{{jeans_sizes[2]}} - {{jeans_sizes_prob[2]}}%</label>
+        </div>
     </div>
 </div>
 <div class="row row-space">
     <div class="col-2">
         <div class="input-group">
             <label class="label">your shirt size is</label>
-            <label class="row row-space">{{shirt_size_1}} - {{shirt_size_prob_1}}%</label>
-            <label class="row row-space">{{shirt_size_2}} - {{shirt_size_prob_2}}%</label>
-            <label class="row row-space">{{shirt_size_3}} - {{shirt_size_prob_3}}%</label>
+            <label class="row row-space">{{shirt_sizes[0]}} - {{shirt_sizes_prob[0]}}%</label>
+            <label class="row row-space">{{shirt_sizes[1]}} - {{shirt_sizes_prob[1]}}%</label>
+            <label class="row row-space">{{shirt_sizes[2]}} - {{shirt_sizes_prob[2]}}%</label>
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock main %}
 
