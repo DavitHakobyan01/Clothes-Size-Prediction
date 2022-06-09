@@ -7,6 +7,26 @@ warnings.filterwarnings('ignore')
 MODEL_DIR = r'.\models'
 
 
+def get_sample(gender: str, age: float, height: float, weight: float, model_name: str):
+    """
+    :param gender: Gender of the person ('Իգական', 'Արական')
+    :param age: Age of the person
+    :param height: Height of the person  (cm)
+    :param weight: Weight of the person (kg)
+    :param model_name: ML model which should be used to predict shoe size.
+    Models are in .\\models\\shoe_size_pred_models directory
+
+    :return: A sample which would be predicted
+    """
+    if '_without_age_feature' in model_name:
+        sample = pd.DataFrame([[gender, height, weight]], columns=['sex', 'height', 'weight'])
+    elif '_without_gender_feature' in model_name:
+        sample = pd.DataFrame([[age, height, weight]], columns=['age', 'height', 'weight'])
+    else:
+        sample = pd.DataFrame([[gender, age, height, weight]], columns=['sex', 'age', 'height', 'weight'])
+    return sample
+
+
 def predict_shoe_size(gender: str, age: float, height: float, weight: float,
                       model_name='voting_classifier_without_age_feature'):
     """
@@ -22,12 +42,7 @@ def predict_shoe_size(gender: str, age: float, height: float, weight: float,
     with open(fr'{MODEL_DIR}\shoe_size_pred_models\{model_name}.pkl', 'rb') as f:
         model = pickle.load(f)
 
-    if '_without_age_feature' in model_name:
-        sample = pd.DataFrame([[gender, height, weight]], columns=['sex', 'height', 'weight'])
-    elif '_without_gender_feature' in model_name:
-        sample = pd.DataFrame([[age, height, weight]], columns=['age', 'height', 'weight'])
-    else:
-        sample = pd.DataFrame([[gender, age, height, weight]], columns=['sex', 'age', 'height', 'weight'])
+    sample = get_sample(gender, age, height, weight, model_name)
 
     probabilities = pd.DataFrame(model.predict_proba(sample).reshape(-1, 1), columns=['Shoe'],
                                  index=[int(i) for i in model.classes_]).sort_values(by='Shoe', ascending=False).iloc[:3]
@@ -49,12 +64,7 @@ def predict_jeans_size(gender: str, age: float, height: float, weight: float,
     with open(fr'{MODEL_DIR}\jeans_size_pred_models\{model_name}.pkl', 'rb') as f:
         model = pickle.load(f)
 
-    if '_without_age_feature' in model_name:
-        sample = pd.DataFrame([[gender, height, weight]], columns=['sex', 'height', 'weight'])
-    elif '_without_gender_feature' in model_name:
-        sample = pd.DataFrame([[age, height, weight]], columns=['age', 'height', 'weight'])
-    else:
-        sample = pd.DataFrame([[gender, age, height, weight]], columns=['sex', 'age', 'height', 'weight'])
+    sample = get_sample(gender, age, height, weight, model_name)
 
     jeans_sizes = {
         0: 'XS (34-35)', 1: 'S (36-37)', 2: 'M (38-39)', 3: 'L (40-41)',
@@ -81,12 +91,7 @@ def predict_shirt_size(gender: str, age: float, height: float, weight: float,
     with open(fr'{MODEL_DIR}\shirt_size_pred_models\{model_name}.pkl', 'rb') as f:
         model = pickle.load(f)
 
-    if '_without_age_feature' in model_name:
-        sample = pd.DataFrame([[gender, height, weight]], columns=['sex', 'height', 'weight'])
-    elif '_without_gender_feature' in model_name:
-        sample = pd.DataFrame([[age, height, weight]], columns=['age', 'height', 'weight'])
-    else:
-        sample = pd.DataFrame([[gender, age, height, weight]], columns=['sex', 'age', 'height', 'weight'])
+    sample = get_sample(gender, age, height, weight, model_name)
 
     shirt_sizes = {0: 'XS', 1: 'S', 2: 'M', 3: 'L', 4: 'XL', 5: 'XXL'}
     classes = [shirt_sizes[i] for i in model.classes_ if i in shirt_sizes.keys()]
